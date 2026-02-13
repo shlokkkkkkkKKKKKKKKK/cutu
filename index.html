@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>For Dhriti 💘</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 18px;
+      border: none;
+      border-radius: 30px;
+      margin: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    /* --- Intro Section --- */
+    #intro {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+      max-width: 500px;
+      padding: 30px;
+      border-radius: 20px;
+      background-color: #f5f5f5;
+      color: #111;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      display: block;
+    }
+
+    #intro button {
+      background-color: #880e4f;
+      color: white;
+      box-shadow: 0 0 10px #880e4f;
+    }
+
+    /* --- Main Content --- */
+    #mainContent {
+      display: none;
+      padding-top: 50px;
+      background: linear-gradient(135deg, #FF6F91, #C2185B, #8B0000);
+      color: #fff5f7;
+      min-height: 100vh;
+    }
+
+    #subline { font-size: 20px; margin-bottom: 15px; color:#fff8f0; display:none; }
+
+    #passwordScreen {
+      margin: 0 auto;
+      padding: 30px;
+      width: 90%;
+      max-width: 500px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 30px rgba(255, 182, 193, 0.4);
+    }
+
+    input {
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 25px;
+      border: none;
+      text-align: center;
+      width: 80%;
+      margin-top: 15px;
+      transition: 0.2s;
+      outline: none;
+    }
+
+    .shake { animation: shake 0.4s; }
+    @keyframes shake {
+      0% { transform: translateX(0); }
+      25% { transform: translateX(-8px); }
+      50% { transform: translateX(8px); }
+      75% { transform: translateX(-8px); }
+      100% { transform: translateX(0); }
+    }
+
+    #unlockBtn { background: #ff4d6d; color: white; box-shadow: 0 0 15px #ff4d6d; }
+    #hintBtn { background: #fff0f5; color: #C2185B; font-size: 14px; }
+    #yes { background: #ff1744; color: white; box-shadow: 0 0 20px #ff1744; display:none; }
+    #yes:hover { transform: scale(1.1); }
+    #no { background: #880e4f; color: white; position: absolute; display:none; }
+
+    #letter {
+      max-width: 650px;
+      margin: 50px auto;
+      background: rgba(255,255,255,0.12);
+      padding: 30px;
+      border-radius: 20px;
+      display: none;
+      animation: fadeIn 2s ease-in-out forwards;
+      box-shadow: 0 0 25px rgba(255,182,193,0.3);
+      text-align: left;
+      color: #fff5f7;
+    }
+
+    #secretMessage {
+      max-width: 650px;
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 15px;
+      background-color: #20c997;
+      color: #fff;
+      display: none;
+      font-style: italic;
+    }
+
+    #tryAgain {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 60px;
+      color: #ff1744;
+      display: none;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 20px;
+      animation: float 6s linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes float {
+      from { transform: translateY(100vh); }
+      to { transform: translateY(-10vh); }
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- --- Intro Section --- -->
+<div id="intro">
+  <p>Um… I've got smth to tell you… loves-</p>
+  <p>Please don't get pissed aight aight-? 
+      I love you and just you- dont forget that-</p>
+  <button onclick="showPassword()">hm think before u click </button>
+</div>
+
+<!-- --- Main Content --- -->
+<div id="mainContent">
+
+  <!-- Password Unlock -->
+  <div id="passwordScreen">
+      <h1>HAHAHA ULLU  BANAYA</h1>
+    <h2>💝 Valentine's Special Access Only 💝</h2>
+    <p>Question: oUR favourite date food 😂🤣</p>
+
+    <input type="password" id="passwordInput" placeholder="Type answer here...">
+    <br>
+    <button id="unlockBtn" onclick="checkPassword()">Unlock My Heart 💘</button>
+    <button id="hintBtn" onclick="showHint()">Hint 👀</button>
+
+    <p id="hintText"></p>
+    <p id="error" style="color:#ffd6e0;"></p>
+  </div>
+
+  <!-- After Unlock -->
+  <h1 id="typing"></h1>
+  <div id="subline">loves with u my life is majama 😉</div>
+
+  <button id="yes" onclick="sayYes()">YES SHLOK 💖</button>
+  <button id="no" onmouseover="moveButton()">No 😢</button>
+
+  <div>
+    <button id="secretBtn" onclick="toggleSecret()">Show Secret Message 💌</button>
+    <div id="secretMessage">
+      🤫 I am secretly actually ur mother’s spy who is being paid to be with u and keep u safe forever…so yeah
+    </div>
+  </div>
+
+  <div id="letter">
+    <h2>💌 A Valentine Letter From SHLOK</h2>
+    <p>
+      I know I'm not the best boyfriend but I wish I cud give u everything u need and want  
+      and at times I may be dumb… actually all the time I'm dumb  
+      but the thing is... I love you and babes I'll do anything to keep u smiling and happy-<br><br>
+      loves if it weren't for these boards I had so much planned-<br><br>
+      I will give u soosososo many things just always be mine and always love me-<br><br>
+      I love you<br><br>
+      and umm ha most importantly wud u like to be my valentine?? 😍
+    </p>
+  </div>
+
+</div>
+
+<div id="tryAgain">TRY AGAIN 💘</div>
+
+<script>
+  let noCount = 0;
+  let heartInterval;
+
+  // --- Show Password Screen after Intro ---
+  function showPassword() {
+    document.getElementById("intro").style.display = "none";
+    document.getElementById("mainContent").style.display = "block";
+
+    document.getElementById("subline").style.display = "none";
+    document.getElementById("yes").style.display = "none";
+    document.getElementById("no").style.display = "none";
+    document.getElementById("secretBtn").style.display = "none";
+    document.getElementById("letter").style.display = "none";
+  }
+
+  // --- Password Functions ---
+  function checkPassword() {
+    const correctPassword = "karishma";
+    const inputField = document.getElementById("passwordInput");
+    const input = inputField.value.toLowerCase();
+
+    if (input === correctPassword) {
+      document.getElementById("passwordScreen").style.display = "none";
+
+      // Reveal main content
+      document.getElementById("subline").style.display = "block";
+      document.getElementById("yes").style.display = "inline-block";
+      document.getElementById("no").style.display = "inline-block";
+      document.getElementById("secretBtn").style.display = "inline-block";
+
+      setTimeout(typeEffect, 500);
+      setTimeout(showLetter, 2000);
+
+      // Start hearts only now
+      heartInterval = setInterval(createHearts, 300);
+    } else {
+      document.getElementById("error").innerHTML =
+        "Wrongggg 😂 try again love bird ;) 💘";
+      inputField.classList.add("shake");
+      setTimeout(() => { inputField.classList.remove("shake"); }, 400);
+    }
+  }
+
+  function showHint() {
+    document.getElementById("hintText").innerHTML =
+      "Hint: green green 💚😏";
+  }
+
+  // --- Typing Effect ---
+  const text = "Dhriti... Will You Be My Valentine? 💖";
+  let i = 0;
+  function typeEffect() {
+    if (i < text.length) {
+      document.getElementById("typing").innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typeEffect, 70);
+    }
+  }
+
+  function showLetter() {
+    document.getElementById("letter").style.display = "block";
+  }
+
+  // --- Secret Message Toggle ---
+  function toggleSecret() {
+    const msg = document.getElementById("secretMessage");
+    msg.style.display = msg.style.display === "block" ? "none" : "block";
+  }
+
+  // --- NO Button ---
+  function moveButton() {
+    noCount++;
+    if (noCount >= 5) {
+      document.body.innerHTML = '';
+      const tryAgain = document.createElement('div');
+      tryAgain.id = 'tryAgain';
+      tryAgain.innerText = 'TRY AGAIN 💘';
+      document.body.appendChild(tryAgain);
+      tryAgain.style.display = 'block';
+      setTimeout(() => location.reload(), 1500);
+    } else {
+      const button = document.getElementById("no");
+      const x = Math.random() * (window.innerWidth - 100);
+      const y = Math.random() * (window.innerHeight - 50);
+      button.style.left = x + "px";
+      button.style.top = y + "px";
+    }
+  }
+
+  // --- YES Button ---
+  function sayYes() {
+    document.body.innerHTML = `
+      <div style="margin-top:200px;">
+        <h1 style="font-size:55px;">SHE SAID YESSSS 💘✨</h1>
+        <p style="font-size:25px;">Congratulations to u nd me now ur my valentine and im urs so YIPIEEEEE YAY HEHEHEH 💖</p>
+        <p style="font-size:20px;">Best Valentine’s Day ever</p>
+        <h1>I LOVE YOUUUUUUUUUUUU</h1>
+      </div>
+    `;
+
+    const colors = ["#ff1744","#ff6f91","#ffb6c1","#ff4d6d","#ff8fab"];
+    for (let i = 0; i < 250; i++) {
+      let heart = document.createElement("div");
+      heart.innerHTML = "💖";
+      heart.style.position = "absolute";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.top = Math.random() * 100 + "vh";
+      heart.style.fontSize = Math.random() * 30 + "px";
+      heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+      document.body.appendChild(heart);
+    }
+
+    // Stop old heart intervals if any
+    clearInterval(heartInterval);
+  }
+
+  // --- Floating Hearts ---
+  function createHearts() {
+    const colors = ["#ff1744","#ff6f91","#ffb6c1","#ffc1cc","#ff8fab"];
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💗";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 20 + 10 + "px";
+    heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+    heart.style.animationDuration = Math.random() * 3 + 3 + "s";
+    document.body.appendChild(heart);
+    setTimeout(() => { heart.remove(); }, 6000);
+  }
+
+</script>
+
+</body>
+</html>
